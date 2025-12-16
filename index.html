@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Казачий Круг — Вход</title>
+
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+    <!-- ===== ЭКРАН 1: ВВОД ТЕЛЕФОНА ===== -->
+    <section class="screen active" data-screen="phone">
+        <div class="logo">
+            <div class="logo-mark">КК</div>
+            <div class="logo-title">
+                КАЗАЧИЙ
+                <span>КРУГ</span>
+            </div>
+        </div>
+
+
+        <h1>Вход по номеру телефона</h1>
+        <p class="description">
+            Мы отправим вам SMS с кодом подтверждения
+        </p>
+
+
+        <div class="form-group">
+            <label>Номер телефона</label>
+            <input type="tel" placeholder="+7 ___ ___-__-__" />
+        </div>
+
+
+        <button type="button" class="button">Получить код</button>
+    </section>
+
+
+    <!-- ===== ЭКРАН 2: ВВОД КОДА ===== -->
+    <section class="screen" data-screen="code">
+        <div class="logo">
+            <div class="logo-mark">КК</div>
+        </div>
+
+
+        <h1>Введите код</h1>
+        <p class="description">
+            Код отправлен на номер<br />+7 *** *** ** 45
+        </p>
+
+
+        <div class="code-inputs">
+            <input type="text" maxlength="1" inputmode="numeric" />
+            <input type="text" maxlength="1" inputmode="numeric" />
+            <input type="text" maxlength="1" inputmode="numeric" />
+            <input type="text" maxlength="1" inputmode="numeric" />
+        </div>
+
+
+        <button type="button" class="button">Подтвердить</button>
+        <div class="timer">Отправить код повторно через 00:30</div>
+    </section>
+
+
+    <!-- ===== ЭКРАН 3: ГОТОВО ===== -->
+    <section class="screen" data-screen="done">
+        <div class="logo">
+            <div class="logo-mark">КК</div>
+        </div>
+
+
+        <h1>Добро пожаловать</h1>
+        <p class="description">
+            Номер подтверждён.<br />Вы можете начать общение.
+        </p>
+
+
+        <button type="button" class="button">Перейти к диалогам</button>
+    </section>
+
+    <!-- ===== ЭКРАН 4: ДИАЛОГИ ===== -->
+    <section class="screen" data-screen="dialogs">
+
+        <header class="dialogs-header">
+            <div class="dialogs-title">Диалоги</div>
+            <div class="dialogs-actions">＋</div>
+            <div class="dialogs-actions settings-open">⚙</div>
+        </header>
+
+        <div class="dialogs-list">
+
+            <div class="dialog-item">
+                <div class="avatar">К</div>
+
+                <div class="dialog-content">
+                    <div class="dialog-top">
+                        <span class="dialog-name">Казачий Круг</span>
+                        <span class="dialog-time">12:45</span>
+                    </div>
+                    <div class="dialog-message">
+                        Добро пожаловать в круг
+                    </div>
+                </div>
+            </div>
+
+            <div class="dialog-item">
+                <div class="avatar">А</div>
+
+                <div class="dialog-content">
+                    <div class="dialog-top">
+                        <span class="dialog-name">Атаман</span>
+                        <span class="dialog-time">вчера</span>
+                    </div>
+                    <div class="dialog-message">
+                        Сбор завтра в 18:00
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== ЭКРАН 5: ЧАТ ===== -->
+    <section class="screen" data-screen="chat">
+
+        <header class="chat-header">
+            <div class="chat-back">←</div>
+            <div class="chat-title">Атаман</div>
+        </header>
+
+        <div class="chat-messages">
+            <div class="message incoming">
+                Сбор завтра в 18:00
+            </div>
+
+            <div class="message outgoing">
+                Принял
+            </div>
+
+            <div class="message incoming">
+                Будь вовремя
+            </div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" placeholder="Сообщение…" />
+            <button class="chat-send">➤</button>
+        </div>
+
+    </section>
+
+    <!-- ===== ЭКРАН 6: НАСТРОЙКИ ===== -->
+    <section class="screen" data-screen="settings">
+
+        <header class="settings-header">
+            <div class="chat-back">←</div>
+            <div class="settings-title">Настройки</div>
+        </header>
+
+        <div class="settings-list">
+
+            <div class="settings-item">
+                <span>Профиль</span>
+                <span class="value">Имя, фото</span>
+            </div>
+
+            <div class="settings-item">
+                <span>Номер телефона</span>
+                <span class="value">+7 *** *** ** 45</span>
+            </div>
+
+            <div class="settings-item">
+                <span>Безопасность</span>
+                <span class="value">Сессии</span>
+            </div>
+
+            <div class="settings-item">
+                <span>Уведомления</span>
+                <span class="value">Включены</span>
+            </div>
+
+            <div class="settings-item">
+                <span>О приложении</span>
+                <span class="value">Казачий Круг</span>
+            </div>
+
+            <div class="settings-item">
+                <span>Выйти</span>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
