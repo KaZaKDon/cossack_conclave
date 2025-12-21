@@ -1,85 +1,68 @@
-// ===== УПРАВЛЕНИЕ ЭКРАНАМИ =====
+// ================================
+//  НАВИГАЦИЯ + АНИМАЦИЯ
+// ================================
 
-const screens = document.querySelectorAll('.screen');
+document.addEventListener('DOMContentLoaded', () => {
 
-function showScreen(name) {
-    screens.forEach(screen => {
-        screen.classList.toggle(
-            'active',
-            screen.dataset.screen === name
+    const screens = document.querySelectorAll('.screen');
+    let currentScreen = document.querySelector('.screen.active');
+
+    function showScreen(name, direction = 'forward') {
+        const nextScreen = document.querySelector(
+            `.screen[data-screen="${name}"]`
         );
+
+        if (!nextScreen || nextScreen === currentScreen) return;
+
+        // направление выхода
+        if (currentScreen) {
+            currentScreen.classList.remove('active');
+            currentScreen.classList.add(
+                direction === 'back' ? 'exit-right' : 'exit-left'
+            );
+        }
+
+        // подготовка нового экрана
+        nextScreen.classList.remove('exit-left', 'exit-right');
+        nextScreen.classList.add('active');
+
+        currentScreen = nextScreen;
+    }
+
+    // ================================
+    //  ЕДИНЫЙ ОБРАБОТЧИК
+    // ================================
+
+    document.addEventListener('click', event => {
+        const trigger = event.target.closest('[data-go]');
+        if (!trigger) return;
+
+        const target = trigger.dataset.go;
+
+        // логика направления
+        const isBack =
+            trigger.textContent.includes('←') ||
+            trigger.dataset.go === 'dialogs';
+
+        showScreen(target, isBack ? 'back' : 'forward');
     });
-}
+    // ================================
+    //  ПУСТЫЕ ДИАЛОГИ
+    // ================================
 
-// ===== КНОПКИ =====
+    function updateDialogsState() {
+        const dialogList = document.querySelector('.dialog-list');
+        const emptyState = document.getElementById('emptyDialogs');
 
-// Экран 1 → Экран 2 (телефон → код)
-const phoneButton = document.querySelector(
-    '[data-screen="phone"] .button'
-);
+        if (!dialogList || !emptyState) return;
 
-phoneButton.addEventListener('click', () => {
-    showScreen('code');
+        const hasDialogs = dialogList.children.length > 0;
+
+        dialogList.style.display = hasDialogs ? 'block' : 'none';
+        emptyState.style.display = hasDialogs ? 'none' : 'block';
+    }
+
+    // вызвать при загрузке
+    updateDialogsState();
+
 });
-
-// Экран 2 → Экран 4 (код → диалоги)
-const codeButton = document.querySelector(
-    '[data-screen="code"] .button'
-);
-
-codeButton.addEventListener('click', () => {
-    showScreen('dialogs');
-});
-
-// Экран 3 (если будешь использовать)
-const doneButton = document.querySelector(
-    '[data-screen="done"] .button'
-);
-
-if (doneButton) {
-    doneButton.addEventListener('click', () => {
-        showScreen('dialogs');
-    });
-}
-
-// ===== ДИАЛОГИ → ЧАТ =====
-
-const dialogItems = document.querySelectorAll('.dialog-item');
-
-dialogItems.forEach(item => {
-    item.addEventListener('click', () => {
-        showScreen('chat');
-    });
-});
-
-// ===== ЧАТ → ДИАЛОГИ =====
-
-const chatBack = document.querySelector('.chat-back');
-
-if (chatBack) {
-    chatBack.addEventListener('click', () => {
-        showScreen('dialogs');
-    });
-}
-
-// ===== ДИАЛОГИ → НАСТРОЙКИ =====
-
-const settingsOpen = document.querySelector('.settings-open');
-
-if (settingsOpen) {
-    settingsOpen.addEventListener('click', () => {
-        showScreen('settings');
-    });
-}
-
-// ===== НАСТРОЙКИ → ДИАЛОГИ =====
-
-const settingsBack = document.querySelector(
-    '[data-screen="settings"] .chat-back'
-);
-
-if (settingsBack) {
-    settingsBack.addEventListener('click', () => {
-        showScreen('dialogs');
-    });
-}
