@@ -2,53 +2,53 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Казачий Круг</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Казачий Круг</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- ================= ЭКРАН: ВВОД ТЕЛЕФОНА ================= -->
-    <section class="screen card active" data-screen="phone">
-      <div class="first">
-        <img class="logo" src="images/logo-icon.jpg" alt="logo">
-        <h1 class="title">Вход по номеру телефона</h1>
-        <p class="description">Мы отправим SMS с кодом подтверждения</p>
-        <div class="form-group">
-          <label>Номер телефона</label>
-          <input type="tel" placeholder="+7 ___ ___ __ __" />
-        </div>
-
-        <button class="button" data-go="code">
-              Получить код
-        </button>
+  <!-- ================= ЭКРАН: ВВОД ТЕЛЕФОНА ================= -->
+  <section class="screen card active" data-screen="phone">
+    <div class="first">
+      <img class="logo" src="images/logo-icon.jpg" alt="logo">
+      <h1 class="title">Вход по номеру телефона</h1>
+      <p class="description">Мы отправим SMS с кодом подтверждения</p>
+      <div class="form-group">
+        <label>Номер телефона</label>
+        <input type="tel" placeholder="+7 ___ ___ __ __" />
       </div>
-    </section>
 
-    <!-- ================= ЭКРАН: ВВОД КОДА ================= -->
-    <section class="screen card" data-screen="code">
-      <div class="second">
-        <img class="logo" src="images/logo-icon.jpg" alt="logo">
-        <h1 class="title">Введите код</h1>
-        <p class="description">Код отправлен на номер<br />+7 *** *** ** 45</p>
-        <div class="code-inputs">
-            <input type="text" maxlength="1" />
-            <input type="text" maxlength="1" />
-            <input type="text" maxlength="1" />
-            <input type="text" maxlength="1" />
-        </div>
+      <button class="button" data-go="code">
+        Получить код
+      </button>
+    </div>
+  </section>
 
-        <button class="button" data-go="new-chat">
-            Подтвердить
-        </button>
-
-        <div class="timer">Отправить код повторно через 00:30</div>
+  <!-- ================= ЭКРАН: ВВОД КОДА ================= -->
+  <section class="screen card" data-screen="code">
+    <div class="second">
+      <img class="logo" src="images/logo-icon.jpg" alt="logo">
+      <h1 class="title">Введите код</h1>
+      <p class="description">Код отправлен на номер<br />+7 *** *** ** 45</p>
+      <div class="code-inputs">
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
       </div>
-    </section>
 
-    <!-- ================= ЭКРАН: ДИАЛОГИ =================
+      <button class="button" data-go="new-chat">
+        Подтвердить
+      </button>
+
+      <div class="timer">Отправить код повторно через 00:30</div>
+    </div>
+  </section>
+
+  <!-- ================= ЭКРАН: ДИАЛОГИ =================
     <section class="screen" data-screen="dialogs">
 
         <!-- ШАПКА 
@@ -80,83 +80,184 @@
 
     </section> -->
 
-    <!-- ================= ЭКРАН: ЧАТ ================= -->
-    <section class="chats" data-screen="chat">
+  <!-- ================= ЭКРАН: ЧАТ ================= -->
+  <section class="screen card chats" data-screen="chat">
 
-      <div class="header">
-        <span>Казачий круг</span>
+    <div class="header">
+      <span>Казачий круг</span>
+    </div>
+
+    <div class="dialogs">
+      <aside class="sidebar-nav">
+        <div class="nav-top">
+          <button class="nav-icon active" data-mode="chats">💬</button>
+          <button class="nav-icon" data-mode="groups">👥</button>
+          <button class="nav-icon" data-mode="calls">📞</button>
+        </div>
+
+        <div class="nav-bottom">
+          <button class="nav-icon">?</button>
+          <button class="nav-icon" data-go="settings">⚙</button>
+        </div>
+      </aside>
+
+      <!-- ===== КОЛОНКА 2: СПИСОК ===== -->
+      <section class="sidebar-list">
+
+        <div class="list-actions">
+          <button class="list-action">Новый чат</button>
+          <button class="list-action">Создать группу</button>
+        </div>
+
+        <div class="chat-list">
+
+          <div class="chat-item active" data-type="chat">
+            <div class="chat-title">Атаман</div>
+          </div>
+
+          <div class="chat-item" data-type="group">
+            <div class="chat-title">Круг</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ===== КОЛОНКА 3: ЧАТ ===== -->
+      <main class="chat-main">
+
+        <header class="chat-header">
+          <h2 class="title">Атаман</h2>
+          <div class="chat-actions">
+            <span>личный чат</span>
+            <div class="chat-settings">
+              <button>📞</button>
+              <button>⋯</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="chat-messages">
+          <div class="message incoming">
+            <div class="bubble">Собрание сегодня в 20:00</div>
+          </div>
+
+          <div class="message outgoing">
+            <div class="bubble">Принял</div>
+            <!-- отправлено -->
+            <span class="message-status sent">✓</span>
+
+            <!-- доставлено -->
+            <span class="message-status delivered">✓✓</span>
+
+            <!-- прочитано -->
+            <span class="message-status read">✓✓</span>
+          </div>
+        </div>
+
+        <footer class="chat-input">
+          <input type="text" placeholder="Сообщение..." />
+          <button class="send">➤</button>
+        </footer>
+
+      </main>
+    </div>
+  </section>
+  <section class="screen card settings" data-screen="settings">
+
+    <header class="settings-header">
+      <button class="back-btn" data-go="chat">←</button>
+      <span class="header-title">Настройки</span>
+    </header>
+
+    <div class="settings-list">
+      <div class="settings-item" data-go="profile">Профиль</div>
+      <div class="settings-item">Уведомления</div>
+      <div class="settings-item">Безопасность</div>
+      <div class="settings-item">Поддержка</div>
+      <div class="settings-item danger">Выйти</div>
+    </div>
+  </section>
+
+  <section class="screen card profile" data-screen="profile">
+
+    <header class="profile-header">
+      <button type="button" class="back-btn" data-go="settings">←</button>
+      <span class="header-title">Профиль</span>
+    </header>
+
+    <div class="profile-info">
+
+      <!-- ===== ПРОСМОТР ===== -->
+      <div class="profile-main" data-profile="view">
+
+        <div class="avatar">
+          <img 
+          id="profileAvatar" 
+          class="avatar-img"
+          width="200"
+          height="200" 
+          src="images/avatar.jpg" 
+          alt="avatar" />
+
+          <input type="file" id="avatarInput" accept="image/*" hidden />
+
+          <button type="button" class="change-avatar-btn" data-action="change-avatar">
+            Сменить фото
+          </button>
+        </div>
+
+        <div class="profile-text">
+          <div class="name" id="profileName">Казак</div>
+          <div class="phone">+7 *** *** ** 45</div>
+        </div>
+
+        <button type="button" class="edit-btn" data-profile-action="edit">
+          Редактировать
+        </button>
+
       </div>
 
-      <div class="dialogs">
-        <aside class="sidebar-nav">
-          <div class="nav-top">
-            <button class="nav-icon active" data-mode="chats">💬</button>
-            <button class="nav-icon" data-mode="groups">👥</button>
-            <button class="nav-icon" data-mode="calls">📞</button>
-          </div>
+      <!-- ===== РЕДАКТИРОВАНИЕ ===== -->
+      <div class="profile-fields hidden" data-profile="edit">
 
-          <div class="nav-bottom">
-            <button class="nav-icon">?</button>
-            <button class="nav-icon">⚙</button>
-          </div>
-        </aside>
+        <div class="field">
+          <label>Имя</label>
+          <input type="text" id="editName" value="Казак">
+        </div>
 
-    <!-- ===== КОЛОНКА 2: СПИСОК ===== -->
-        <section class="sidebar-list">
+        <div class="field">
+          <label>О себе</label>
+          <textarea id="editAbout" rows="5" placeholder="Статус или описание"></textarea>
+        </div>
 
-          <div class="list-actions">
-            <button class="list-action">Новый чат</button>
-            <button class="list-action">Создать группу</button>
-          </div>
+        <div class="field readonly">
+          <label>Дата регистрации</label>
+          <span>12.10.2025</span>
+        </div>
 
-          <div class="chat-list">
+        <div class="profile-actions">
+          <button type="button" class="button primary" data-profile-action="save">
+            Сохранить
+          </button>
 
-            <div class="chat-item active" data-type="chat">
-              <div class="chat-title">Атаман</div>
-            </div>
+          <button type="button" class="button secondary" data-profile-action="cancel">
+            Отмена
+          </button>
+        </div>
 
-            <div class="chat-item" data-type="group">
-              <div class="chat-title">Круг</div>
-            </div>
-
-          </div>
-
-        </section>
-
-    <!-- ===== КОЛОНКА 3: ЧАТ ===== -->
-        <main class="chat-main">
-
-          <header class="chat-header">
-            <h2 class="title">Атаман</h2>
-            <div class="chat-actions">
-              <span>личный чат</span>
-              <div class="chat-settings">
-                <button>📞</button>
-                <button>⋯</button>
-              </div>
-            </div>
-          </header>
-
-          <div class="chat-messages">
-            <div class="message incoming">
-              <div class="bubble">Собрание сегодня в 20:00</div>
-            </div>
-
-            <div class="message outgoing">
-              <div class="bubble">Принял</div>
-            </div>
-          </div>
-
-          <footer class="chat-input">
-            <input type="text" placeholder="Сообщение..." />
-            <button class="send">➤</button>
-          </footer>
-
-        </main> 
       </div>
-    </section>
 
-    <script src="app.js"></script>
+    </div>
+
+  </section>
+
+
+
+
+  <script src="js/app.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/settings.js"></script>
 </body>
 
 </html>

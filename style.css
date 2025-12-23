@@ -45,6 +45,7 @@ body {
     opacity: 0;
     transform: translateX(20px);
 }
+
 .screen.active {
     display: block;
     opacity: 1;
@@ -140,6 +141,7 @@ input:focus {
     height: 100vh;
     background: var(--bg-main);
 }
+
 .sidebar-nav {
     margin-top: 30px;
     min-height: 500px;
@@ -169,18 +171,17 @@ input:focus {
     align-items: start;
     padding-bottom: 20px;
 }
+
 .header__icon {
     width: 50px;
     height: 50px;
 }
+
 .header {
+    background: var(--bg-main);
     margin-left: 50px;
     font-size: 15px;
     font-weight: 500;
-}
-
-.chat-main {
-    
 }
 
 .chat-actions {
@@ -204,4 +205,96 @@ input:focus {
 .outgoing {
     padding-right: 30px;
     text-align: right;
+}
+
+.settings {
+    background: var(--bg-main);
+}
+
+.profile-header,
+.settings-header {
+    width: 100%;
+    margin-left: 50px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    width: 50px;
+    height: 20px;
+    background: var(--color-primary);
+    color: white;
+    cursor: pointer;
+}
+
+.header-title {
+    padding-right: 100px;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.settings-list,
+.profile-main,
+.profile-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-item {
+    font-size: 20px;
+    letter-spacing: 1.2;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.settings-item:hover {
+    color: var(--color-accent);
+}
+
+.profile {
+    background: var(--bg-main);
+}
+
+.profile-main {
+    margin-bottom: 20px;
+}
+
+.avatar-img {
+    border-radius: 50%;
+}
+
+.profile-info {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.edit-btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-bottom: 3px;
+    border: 1px solid var(--color-primary);
+    background: var(--color-muted);
+    color: var(--bg-main);
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
